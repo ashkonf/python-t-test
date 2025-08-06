@@ -17,6 +17,8 @@ dev = [
   "pre-commit",
   "ruff",
   "pyright",
+  "matplotlib",
+  "jupyter",
 ]
 
 [tool.ruff]
