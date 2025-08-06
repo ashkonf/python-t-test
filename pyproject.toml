@@ -1,0 +1,33 @@
+[project]
+name = "python-t-test"
+version = "0.1.0"
+description = "Python T-Test and Confidence Interval Estimation"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.8"
+dependencies = [
+  "numpy",
+  "scipy",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-cov",
+  "pre-commit",
+  "ruff",
+  "pyright",
+]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pyright]
+pythonVersion = "3.8"
+reportMissingTypeStubs = false
+reportMissingImports = false
+

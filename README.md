@@ -1,83 +1,57 @@
 # Python T-Test and Confidence Interval Estimation
 
-A simple Python implementation of standard statistical t-test and confidence interval estimation. 
+A simple Python implementation of standard statistical t-test and confidence interval estimation.
 
-For more details on how the the Student's T-Test and confidence interval estimation work behind the scenes, check out the [Student's T-Test Wikipedia article](https://en.wikipedia.org/wiki/Student%27s_t-test) and the [the Wikipedia article on confidence intervals](https://en.wikipedia.org/wiki/Confidence_interval).
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Running Tests](#running-tests)
+- [Linting and Type Checking](#linting-and-type-checking)
+- [Example](#example)
 
-## Setup
+## Installation
 
-There's not much to it - just include the ttest.py file in your project, make sure you've installed the dependencies listed below, and use away!
+This project requires Python 3.8 or newer and uses [uv](https://docs.astral.sh/uv/) for dependency management.
+Install dependencies with:
 
-### Dependancies
-
-This module relies on two relatively standard Python libraries:
-
-  1. [Numpy](numpy.org)
-  2. [SciPy](www.scipy.org)
+```
+uv sync
+```
 
 ## Usage
 
-This module exports two public functions, `perform_t_test1` and `calculate_confidence_interval`.
+The module exports two public functions:
 
-### Function: perform_t_test
+- `perform_t_test(points1, points2, two_sided=True) -> float`
+- `calculate_confidence_interval(points, confidence_threshold=0.95) -> Tuple[float, float]`
 
-```
-perform_t_test(points1, points2)
-```
+## Running Tests
 
-This function performs a t-test on two given sets of data and returns the associated p-value.
-
-Arguments:
-
-| Name | Type | Description | Optional? | Default <br/> Value |
-| ---- | ---- | ----------- | --------- | ------------------- |
-| `points1` | `[float]` | The first dataset to be compared, represented as a list of floats. | False |  |
-| `points2` | `[float]` | The second dataset to be compared, represented as a list of floats. | False |  |
-| `two_sided` | `bool` | A flag indicating whether the test is to be two-tailed. | True | `True` |
-
-Return Value: This function returns a single `float` that indicates the calculated p-value.
-
-### Function: calculate_confidence_interval
+Run tests with full coverage using:
 
 ```
-calculate_confidence_interval(points, confidence_threshold)
+uv run --extra dev pytest --cov
 ```
 
-This function calculates and returns the confidence interval on the provided dataset with the given confidence threshold.
+## Linting and Type Checking
 
-Arguments:
+- Format code: `uv run --extra dev ruff format`
+- Lint code: `uv run --extra dev ruff check`
+- Type check: `uv run --extra dev pyright`
 
-| Name | Type | Description | Optional? | Default <br/> Value |
-| ---- | ---- | ----------- | --------- | ------------------- |
-| `points` | `[float]` | The dataset on which to calculate the interval, represented as a list of floats. | False |  |
-| `confidence_threshold` | `float` | The confidence threshold to be used in the confidence interval calculation. | True | `0.95` |
+## Example
 
-Return Value: This function returns a tuple containing two floats representing the bounds of the interval: `(lower_bound, upper_bound)`.
-  
-## Example Usage
-
-A usage of this module on two randomly generated sample datasets appears below:
-
-```
+```python
 import random
 from ttest import calculate_confidence_interval, perform_t_test
 
-# Creating sample data:
-random.seed(1234) # Setting a random seed to ensure consistent results across runs of this sample
+random.seed(1234)
 points1 = random.sample(range(10, 30), 10)
 points2 = random.sample(range(15, 35), 10)
 
-# Using perform_t_test:
 p_value = perform_t_test(points1, points2)
 print("P-value for the sample data:", p_value)
 
-# Using calculate_confidence_interval:
 confidence_interval = calculate_confidence_interval(points1, 0.95)
 print("Calculated confidence interval:", confidence_interval)
-```
-This sample will produce the following results:
-
-```
-P-value for the sample data: 0.0011817174369730399
-Calculated confidence interval: (14.167038919376605, 20.432961080623397)
 ```

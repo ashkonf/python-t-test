@@ -1,0 +1,23 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-format
+        name: ruff format
+        entry: uv run --extra dev ruff format
+        language: system
+        types: [python]
+      - id: ruff-check
+        name: ruff check
+        entry: uv run --extra dev ruff check
+        language: system
+        types: [python]
+      - id: pyright
+        name: pyright
+        entry: uv run --extra dev pyright
+        language: system
+        types: [python]
+      - id: pytest
+        name: pytest
+        entry: uv run --extra dev pytest
+        language: system
+        types: [python]
