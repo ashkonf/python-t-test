@@ -18,6 +18,6 @@ repos:
         types: [python]
       - id: pytest
         name: pytest
-        entry: uv run --extra dev pytest
+        entry: bash -c 'PYTHONPATH=. uv run --extra dev pytest'
         language: system
         types: [python]

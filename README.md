@@ -55,3 +55,13 @@ print("P-value for the sample data:", p_value)
 confidence_interval = calculate_confidence_interval(points1, 0.95)
 print("Calculated confidence interval:", confidence_interval)
 ```
+
+## Demo Notebook
+
+For a comprehensive demonstration with visualizations and real-world examples, see the [demo.ipynb](demo.ipynb) Jupyter notebook. It includes:
+
+- Basic usage examples
+- Statistical interpretation
+- A/B testing scenarios  
+- Data visualization
+- Understanding statistical significance
