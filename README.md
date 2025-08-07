@@ -2,8 +2,6 @@
 
 A simple Python implementation of standard statistical t-test and confidence interval estimation.
 
-The project now uses a `src` layout with package code located under `src/ttest`.
-
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
