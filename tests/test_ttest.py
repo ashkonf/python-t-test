@@ -7,6 +7,7 @@ from ttest import calculate_confidence_interval, perform_t_test
 
 
 def test_perform_t_test_positive() -> None:
+    """Test two-sided t-test for positive difference."""
     points1: List[float] = [3.0, 3.1, 2.9, 3.2, 2.8]
     points2: List[float] = [1.0, 1.1, 0.9, 1.2, 0.8]
     expected: float = stats.ttest_ind(points1, points2, equal_var=False).pvalue
@@ -14,6 +15,7 @@ def test_perform_t_test_positive() -> None:
 
 
 def test_perform_t_test_negative() -> None:
+    """Test two-sided t-test for negative difference."""
     points1: List[float] = [1.0, 1.1, 0.9, 1.2, 0.8]
     points2: List[float] = [3.0, 3.1, 2.9, 3.2, 2.8]
     expected: float = stats.ttest_ind(points1, points2, equal_var=False).pvalue
@@ -21,6 +23,7 @@ def test_perform_t_test_negative() -> None:
 
 
 def test_perform_t_test_one_sided() -> None:
+    """Test one-sided t-test for greater-than alternative."""
     points1: List[float] = [3.0, 3.1, 2.9, 3.2, 2.8]
     points2: List[float] = [1.0, 1.1, 0.9, 1.2, 0.8]
     expected: float = stats.ttest_ind(
@@ -30,6 +33,7 @@ def test_perform_t_test_one_sided() -> None:
 
 
 def test_calculate_confidence_interval() -> None:
+    """Test confidence interval contains sample mean."""
     points: List[float] = [1, 2, 3, 4, 5]
     lower: float
     upper: float
@@ -40,6 +44,7 @@ def test_calculate_confidence_interval() -> None:
 
 
 def test_calculate_confidence_interval_different_confidence() -> None:
+    """Test confidence interval changes with confidence level."""
     points: List[float] = [10, 12, 14, 16, 18]
     lower: float
     upper: float
@@ -49,6 +54,7 @@ def test_calculate_confidence_interval_different_confidence() -> None:
 
 
 def test_perform_t_test_edge_cases() -> None:
+    """Test p-value lies within expected bounds."""
     points1: List[float] = [1.0, 2.0]
     points2: List[float] = [1.5, 2.5]
     p_value: float = perform_t_test(points1, points2)
@@ -56,6 +62,7 @@ def test_perform_t_test_edge_cases() -> None:
 
 
 def test_calculate_confidence_interval_single_point() -> None:
+    """Test confidence interval is infinite for single sample."""
     points: List[float] = [5.0]
     lower: float
     upper: float

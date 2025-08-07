@@ -10,23 +10,7 @@ from scipy import stats
 def perform_t_test(
     points1: Sequence[float], points2: Sequence[float], two_sided: bool = True
 ) -> float:
-    """Perform a two-sample t-test to compare means of two datasets.
-
-    Uses Welch's t-test (unequal variances) to test the null hypothesis that
-    the two independent samples have identical average (expected) values.
-
-    Args:
-        points1: First sample data points
-        points2: Second sample data points
-        two_sided: If True, perform two-sided test. If False, perform one-sided test
-                  testing if points1 mean > points2 mean
-
-    Returns:
-        The p-value for the hypothesis test
-
-    Raises:
-        ZeroDivisionError: If both samples have zero variance
-    """
+    """Return the p-value from Welch's two-sample t-test."""
     n1: float = float(len(points1))
     n2: float = float(len(points2))
     x1_bar: float = float(np.mean(points1))
@@ -51,21 +35,7 @@ def perform_t_test(
 def calculate_confidence_interval(
     points: Sequence[float], confidence_threshold: float = 0.95
 ) -> Tuple[float, float]:
-    """Calculate confidence interval for the mean of a sample.
-
-    Uses the t-distribution to calculate the confidence interval for the
-    population mean based on the sample data.
-
-    Args:
-        points: Sample data points
-        confidence_threshold: Confidence level (e.g., 0.95 for 95% confidence)
-
-    Returns:
-        Tuple of (lower_bound, upper_bound) for the confidence interval
-
-    Raises:
-        ValueError: If confidence_threshold is not between 0 and 1
-    """
+    """Return a t-based confidence interval for a sample mean."""
     n: float = float(len(points))
     if n <= 1:
         return (float("-inf"), float("inf"))
