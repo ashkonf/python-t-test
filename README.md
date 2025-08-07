@@ -1,4 +1,6 @@
-# Python T-Test and Confidence Interval Estimation
+<div align="center">
+
+# python-t-test
 
 [![PyPI version](https://img.shields.io/pypi/v/your-package)](link-to-pypi-page)
 [![codecov](https://codecov.io/github/ashkonf/python-t-test/graph/badge.svg?token=7Y596J8IYZ)](https://codecov.io/github/ashkonf/python-t-test)
@@ -10,6 +12,8 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ashkonf/python-t-test/ci.yml?branch=main)](https://github.com/ashkonf/python-t-test/actions/workflows/ci.yml?query=branch%3Amain)
 
 A simple Python implementation of standard statistical t-test and confidence interval estimation.
+
+</div>
 
 ## Table of Contents
 - [Installation](#installation)
