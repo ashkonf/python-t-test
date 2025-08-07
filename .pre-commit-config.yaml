@@ -18,6 +18,6 @@ repos:
         types: [python]
       - id: pytest
         name: pytest
-        entry: bash -c 'PYTHONPATH=. uv run --extra dev pytest'
+        entry: uv run pytest --cov --cov-branch --cov-report=xml
         language: system
         types: [python]
