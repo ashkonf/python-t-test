@@ -69,3 +69,26 @@ def test_calculate_confidence_interval_single_point() -> None:
     lower, upper = calculate_confidence_interval(points)
     assert lower == float("-inf")
     assert upper == float("inf")
+
+
+def test_perform_t_test_identical_samples() -> None:
+    points: List[float] = [2.0, 2.1, 1.9, 2.2, 1.8]
+    result: Any = stats.ttest_ind(points, points, equal_var=False)
+    expected: float = result.pvalue
+    assert perform_t_test(points, points) == pytest.approx(expected)
+
+
+def test_perform_t_test_zero_variance_error() -> None:
+    points1: List[float] = [1.0, 1.0, 1.0]
+    points2: List[float] = [2.0, 2.0, 2.0]
+    with pytest.raises(ZeroDivisionError):
+        perform_t_test(points1, points2)
+
+
+def test_calculate_confidence_interval_zero_variance() -> None:
+    points: List[float] = [5.0, 5.0, 5.0, 5.0]
+    lower: float
+    upper: float
+    lower, upper = calculate_confidence_interval(points)
+    assert lower == pytest.approx(5.0)
+    assert upper == pytest.approx(5.0)
