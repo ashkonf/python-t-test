@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "python-t-test"
 version = "0.1.0"
@@ -21,8 +25,15 @@ dev = [
   "jupyter",
 ]
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
 [tool.ruff]
 line-length = 88
+exclude = ["demo.ipynb"]
 
 [tool.ruff.format]
 quote-style = "double"
