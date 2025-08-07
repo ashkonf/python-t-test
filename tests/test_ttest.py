@@ -1,4 +1,4 @@
-from typing import List, Any
+from typing import List
 
 import pytest
 from scipy import stats
@@ -9,26 +9,23 @@ from ttest import calculate_confidence_interval, perform_t_test
 def test_perform_t_test_positive() -> None:
     points1: List[float] = [3.0, 3.1, 2.9, 3.2, 2.8]
     points2: List[float] = [1.0, 1.1, 0.9, 1.2, 0.8]
-    result: Any = stats.ttest_ind(points1, points2, equal_var=False)
-    expected: float = result.pvalue
+    expected: float = stats.ttest_ind(points1, points2, equal_var=False).pvalue
     assert perform_t_test(points1, points2) == pytest.approx(expected)
 
 
 def test_perform_t_test_negative() -> None:
     points1: List[float] = [1.0, 1.1, 0.9, 1.2, 0.8]
     points2: List[float] = [3.0, 3.1, 2.9, 3.2, 2.8]
-    result: Any = stats.ttest_ind(points1, points2, equal_var=False)
-    expected: float = result.pvalue
+    expected: float = stats.ttest_ind(points1, points2, equal_var=False).pvalue
     assert perform_t_test(points1, points2) == pytest.approx(expected)
 
 
 def test_perform_t_test_one_sided() -> None:
     points1: List[float] = [3.0, 3.1, 2.9, 3.2, 2.8]
     points2: List[float] = [1.0, 1.1, 0.9, 1.2, 0.8]
-    result: Any = stats.ttest_ind(
+    expected: float = stats.ttest_ind(
         points1, points2, equal_var=False, alternative="greater"
-    )
-    expected: float = result.pvalue
+    ).pvalue
     assert perform_t_test(points1, points2, two_sided=False) == pytest.approx(expected)
 
 
