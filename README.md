@@ -62,6 +62,6 @@ For a comprehensive demonstration with visualizations and real-world examples, s
 
 - Basic usage examples
 - Statistical interpretation
-- A/B testing scenarios  
+- A/B testing scenarios
 - Data visualization
 - Understanding statistical significance

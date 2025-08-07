@@ -10,7 +10,7 @@ def test_perform_t_test_positive() -> None:
     """Test two-sided t-test for positive difference."""
     points1: List[float] = [3.0, 3.1, 2.9, 3.2, 2.8]
     points2: List[float] = [1.0, 1.1, 0.9, 1.2, 0.8]
-    expected: float = stats.ttest_ind(points1, points2, equal_var=False).pvalue # type: ignore
+    expected: float = stats.ttest_ind(points1, points2, equal_var=False).pvalue  # type: ignore
     assert perform_t_test(points1, points2) == pytest.approx(expected)
 
 
@@ -18,7 +18,7 @@ def test_perform_t_test_negative() -> None:
     """Test two-sided t-test for negative difference."""
     points1: List[float] = [1.0, 1.1, 0.9, 1.2, 0.8]
     points2: List[float] = [3.0, 3.1, 2.9, 3.2, 2.8]
-    expected: float = stats.ttest_ind(points1, points2, equal_var=False).pvalue # type: ignore
+    expected: float = stats.ttest_ind(points1, points2, equal_var=False).pvalue  # type: ignore
     assert perform_t_test(points1, points2) == pytest.approx(expected)
 
 
@@ -28,7 +28,7 @@ def test_perform_t_test_one_sided() -> None:
     points2: List[float] = [1.0, 1.1, 0.9, 1.2, 0.8]
     expected: float = stats.ttest_ind(
         points1, points2, equal_var=False, alternative="greater"
-    ).pvalue # type: ignore
+    ).pvalue  # type: ignore
     assert perform_t_test(points1, points2, two_sided=False) == pytest.approx(expected)
 
 

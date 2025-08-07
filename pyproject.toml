@@ -45,4 +45,3 @@ indent-style = "space"
 pythonVersion = "3.8"
 reportMissingTypeStubs = false
 reportMissingImports = false
-
