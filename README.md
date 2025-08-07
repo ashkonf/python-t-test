@@ -1,5 +1,13 @@
 # Python T-Test and Confidence Interval Estimation
 
+[![PyPI version](https://badge.fury.io/py/python-t-test.svg)](https://badge.fury.io/py/python-t-test)
+[![CI](https://github.com/ashkonfarhangi/python-t-test/actions/workflows/ci.yml/badge.svg)](https://github.com/ashkonfarhangi/python-t-test/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/ashkonfarhangi/python-t-test/graph/badge.svg?token=YOUR_CODECOV_TOKEN)](https://codecov.io/gh/ashkonfarhangi/python-t-test)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Pytest](https://img.shields.io/badge/pytest-✓-brightgreen)](https://docs.pytest.org)
+[![Pyright](https://img.shields.io/badge/pyright-✓-green)](https://github.com/microsoft/pyright)
+[![pre-commit.ci status](https://results.pre-commit.ci/latest/github/ashkonfarhangi/python-t-test/main.svg)](https://results.pre-commit.ci/latest/github/ashkonfarhangi/python-t-test/main)
+
 A simple Python implementation of standard statistical t-test and confidence interval estimation.
 
 ## Table of Contents
